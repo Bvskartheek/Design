@@ -1,0 +1,6 @@
+id,item_name,part_name,materials_used,recyclable,reusable,recycling_process
+1,Washing-Machine,Motor,Copper,Yes,No,Metal Extraction
+2,Washing-Machine,Drum,Stainless Steel,Yes,Yes,Melting and Reprocessing
+3,Washing-Machine,Control Panel,Plastic,Yes,No,Shredding & Repurposing
+4,Washing-Machine,Wiring,Copper,Yes,No,Wire Recycling
+5,Washing-Machine,PCB,Silicon & Copper,Yes,No,PCB Recycling

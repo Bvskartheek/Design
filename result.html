@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Waste Detection - Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Detection Results</h1>
+        
+        <!-- Display Uploaded Image -->
+        <h2>Uploaded Image:</h2>
+        <img src="{{ url_for('static', filename='uploads/' + image_filename) }}" alt="Uploaded Image" class="uploaded-image">
+
+        <!-- Detected Items and Confidence Scores -->
+        <h2>Detected Item(s):</h2>
+        {% if detected_items %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Confidence Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in detected_items %}
+                <tr>
+                    <td>{{ item['item_name'] }}</td>
+                    <td>{{ item['confidence'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>No items detected.</p>
+        {% endif %}
+
+        <h2>Internal Parts</h2>
+        {% if parts %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Item Name</th>
+                    <th>Part Name</th>
+                    <th>Materials Used</th>
+                    <th>Recyclable</th>
+                    <th>Reusable</th>
+                    <th>Recycling Process</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for part in parts %}
+                <tr>
+                    <td>{{ part['id'] }}</td>
+                    <td>{{ part['item_name'] }}</td>
+                    <td>{{ part['part_name'] }}</td>
+                    <td>{{ part['materials_used'] }}</td>
+                    <td>{{ part['recyclable'] }}</td>
+                    <td>{{ part['reusable'] }}</td>
+                    <td>{{ part['recycling_process'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>No internal parts data available.</p>
+        {% endif %}
+
+        <h2>Recyclable Item Values</h2>
+        {% if recyclable_values %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Part Name</th>
+                    <th>Materials Used</th>
+                    <th>Estimated Value (₹)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for value in recyclable_values %}
+                <tr>
+                    <td>{{ value['id'] }}</td>
+                    <td>{{ value['part_name'] }}</td>
+                    <td>{{ value['materials_used'] }}</td>
+                    <td>{{ value['estimated_value'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>No recyclable item values available.</p>
+        {% endif %}
+
+        <h2>Nearest Recycling Centers</h2>
+        {% if recycling_centers %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th>Center Name</th>
+                    <th>Address</th>
+                    <th>Contact</th>
+                    <th>Working Hours</th>
+                    <th>Website</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for center in recycling_centers %}
+                <tr>
+                    <td>{{ center['location'] }}</td>
+                    <td>{{ center['center_name'] }}</td>
+                    <td>{{ center['address'] }}</td>
+                    <td>{{ center['contact'] }}</td>
+                    <td>{{ center['working_hours'] }}</td>
+                    <td><a href="{{ center['website'] }}" target="_blank">Visit Website</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>No recycling centers found.</p>
+        {% endif %}
+
+        <h2>Reusable Parts</h2>
+        {% if reusable_parts %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Part Name</th>
+                    <th>Reuse Potential</th>
+                    <th>Estimated Value (₹)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for part in reusable_parts %}
+                <tr>
+                    <td>{{ part['id'] }}</td>
+                    <td>{{ part['part_name'] }}</td>
+                    <td>{{ part['reuse_potential'] }}</td>
+                    <td>{{ part['estimated_value'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>No reusable parts available.</p>
+        {% endif %}
+
+        <h2>Resale/Donate Areas</h2>
+        {% if resale_donate_areas %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Location</th>
+                    <th>Center Name</th>
+                    <th>Address</th>
+                    <th>Contact</th>
+                    <th>Working Hours</th>
+                    <th>Website</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for area in resale_donate_areas %}
+                <tr>
+                    <td>{{ area['location'] }}</td>
+                    <td>{{ area['center_name'] }}</td>
+                    <td>{{ area['address'] }}</td>
+                    <td>{{ area['contact'] }}</td>
+                    <td>{{ area['working_hours'] }}</td>
+                    <td><a href="{{ area['website'] }}" target="_blank">Visit Website</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>No resale or donation areas found.</p>
+        {% endif %}
+
+        <footer>
+            <div class="back-link">
+                <a href="/">Go Back to Home</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

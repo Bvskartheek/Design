@@ -1,0 +1,6 @@
+id,item_id,part_name,materials_used,estimated_value
+1,1,Motor,Copper,700
+2,2,Drum,Stainless Steel,500
+3,3,Control Panel,Plastic,200
+4,4,Wiring,Copper,150
+5,5,PCB,Silicon & Copper,400

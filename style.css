@@ -1,0 +1,99 @@
+/* General page styling */
+body {
+    background-image: url('https://wallpaperaccess.com/full/6123595.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+    padding: 20px;
+    margin: 60px auto;
+    width: 80%;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+/* Header styling */
+h1, h2 {
+    text-align: center;
+    color: #444;
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: white;
+}
+
+table, th, td {
+    border: 1px solid #777;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Buttons and Links */
+button, .btn, a {
+    display: inline-block;
+    text-align: center;
+    padding: 10px 15px;
+    margin: 10px auto;
+    background-color: #008CBA;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+    cursor: pointer;
+}
+
+button:hover, .btn:hover, a:hover {
+    background-color: #005f73;
+}
+
+/* Form elements */
+input[type="file"], input[type="submit"] {
+    margin-top: 20px;
+    padding: 10px;
+    width: 60%;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="file"]:hover, input[type="submit"]:hover {
+    background-color: #388E3C;
+}
+
+/* Back link */
+.back-link a {
+    font-weight: bold;
+    color: #FF5733;
+}
+
+.back-link a:hover {
+    color: #C70039;
+}
